@@ -9,7 +9,7 @@ document.getElementById("memory-store")
 //memory recall
 document.getElementById("memory-recall")
     .addEventListener('click', () => {
-    input.value = memory[memory.length - 1];
+    input.value = memory[memory.length - 1].toString();
 });
 //memory add
 document.getElementById("memory-add")
@@ -19,7 +19,7 @@ document.getElementById("memory-add")
 //memory substract
 document.getElementById("memory-sub")
     .addEventListener('click', () => {
-    memory[memory.length - 1] -= input.value;
+    memory[memory.length - 1] -= Number(input.value);
 });
 //memory clear
 document.getElementById("memory-clear")

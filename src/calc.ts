@@ -4,7 +4,7 @@
 // }
 
 //fixed-exponential toggle
-const fE: HTMLButtonElement = document.getElementById('f-e') as HTMLButtonElement;
+const fE: HTMLDivElement = document.getElementById('f-e') as HTMLDivElement;
 fE.addEventListener('click', () => {
     fix = (fix == 0) ? 1 : 0;
     fE.classList.toggle('clicked-bg');
@@ -14,7 +14,7 @@ const input: HTMLInputElement = document.getElementById('input-text') as HTMLInp
 const expression: HTMLInputElement = document.getElementById('expression-text') as HTMLInputElement;
 const numberInputs = document.getElementsByClassName('number');
 const operators = document.getElementsByClassName('operator');
-const equal: HTMLButtonElement = document.getElementById('equal') as HTMLButtonElement;
+const equal: HTMLDivElement = document.getElementById('equal') as HTMLDivElement;
 const brackets = document.getElementsByClassName('bracket');
 const operatorSymbols: string[] = ["*", "+", "-", "/"];
 
@@ -35,7 +35,7 @@ for (let ele of brackets) {
 //operators
 for (let ele of operators) {
     ele.addEventListener('click', () => {
-        if (input.value == "") {
+        if (operatorSymbols.includes(expression.value.slice(-1))) {
             expression.value = expression.value.substring(0, expression.value.length - 1) + ele.innerHTML;
         }
         else {
@@ -45,14 +45,14 @@ for (let ele of operators) {
     })
 }
 //clear
-const clear: HTMLButtonElement = document.getElementById('clear') as HTMLButtonElement;
+const clear: HTMLDivElement = document.getElementById('clear') as HTMLDivElement;
 clear.addEventListener('click', () => {
     expression.value = "";
     input.value = "";
 });
 
 //backspace (erase last)
-const eraseLast: HTMLButtonElement = document.getElementById('erase-last') as HTMLButtonElement;
+const eraseLast: HTMLDivElement = document.getElementById('erase-last') as HTMLDivElement;
 eraseLast.addEventListener('click', () => {
     input.value = input.value.substring(0, input.value.length - 1);
 });
@@ -90,6 +90,8 @@ equal.addEventListener('click', () => {
 
         input.value = eval((expression.value).replaceAll("^", "**").replaceAll("mod", "%")
             .replaceAll("÷", "/").replaceAll("x", "*"));
+        expression.value = "";
+        
     }
     catch (err) {
         alert("Invalid expression!")
@@ -99,19 +101,19 @@ equal.addEventListener('click', () => {
 })
 
 //alter sign
-const alterSign: HTMLButtonElement = document.getElementById('altersign') as HTMLButtonElement;
+const alterSign: HTMLDivElement = document.getElementById('altersign') as HTMLDivElement;
 alterSign.addEventListener('click', () => {
     input.value = (-1 * parseFloat(input.value)).toString();
 });
 
 //e 
-const constE: HTMLButtonElement = document.getElementById('const-e') as HTMLButtonElement;
+const constE: HTMLDivElement = document.getElementById('const-e') as HTMLDivElement;
 constE.addEventListener('click', () => {
     input.value = Math.E.toString();
 });
 
 //pi 
-const constPi:HTMLButtonElement = document.getElementById('const-pi') as HTMLButtonElement;
+const constPi:HTMLDivElement = document.getElementById('const-pi') as HTMLDivElement;
 constPi.addEventListener('click', () => {
     if (!isNaN(parseInt(input.value.slice(-1)))) {
         input.value = Math.PI.toString();
