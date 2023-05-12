@@ -1,0 +1,130 @@
+body {
+  color: #232323;
+  font-weight: 500;
+  font-size: large;
+  cursor: pointer;
+}
+
+.calculator {
+  width: 500px;
+  background-color: #f2f2f2;
+  margin: auto;
+}
+
+/* display of input and expression */
+.input {
+  display: block;
+  height: 4rem;
+  width: 99%;
+  text-align: right;
+  border: none;
+  background-color: rgb(241,241,241);
+  font-size: 2.3rem;
+  outline: none;
+  text-decoration: none;
+}
+
+.expression {
+  display: block;
+  height: 4rem;
+  width: 99%;
+  text-align: right;
+  border: none;
+  background-color: rgb(236,236,236);
+  font-size: 1.2rem;
+  outline: none;
+  text-decoration: none;
+}
+
+.rowu {
+  display: flex;
+  flex-direction: row;
+}
+
+/* calculator buttons */
+.btn {
+  height: 50px;
+  width: 19%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
+.btn:hover {
+  background-color: rgb(210, 210, 210);
+}
+
+.btn-num {
+  background-color: #fdfdfd;
+  font-family: fantasy;
+}
+
+.btn-main {
+  background-color: #f7f7f7;
+}
+
+.btn-others {
+  height: 50px;
+  width: 19%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+/* Drop downs for trigonometry and normal functions */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropbtn {
+  color: black;
+  width: 184px;
+  padding: 16px;
+  text-align: center;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: rgb(210, 210, 210);
+}
+
+.btnd {
+  height: 50px;
+  width: 33%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 3px;
+  background-color: #f7f7f7;
+}
+
+
+/* toggling classes */
+.show {
+  display: block;
+}
+
+.clicked-bg {
+  background-color: rgb(146, 199, 214);
+}
+
+.hidden {
+  display: none;
+}
