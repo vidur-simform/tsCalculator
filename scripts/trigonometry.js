@@ -15,8 +15,8 @@ const hide = () => {
     }
 };
 hide();
-function toggleTri() {
-    this.classList.toggle("clicked-bg");
+const toggleTri = (ele) => {
+    ele.classList.toggle("clicked-bg");
     if (hyp == 0 && tri == 0) {
         for (let i = 0; i < arrLen; i++) {
             inverseTriFunctions[i].style.display = "";
@@ -45,10 +45,10 @@ function toggleTri() {
             tri = 0;
         }
     }
-}
+};
 //arrow functions won't allow binding of this here that's why we required declaration
-function toggleHyp() {
-    this.classList.toggle("clicked-bg");
+const toggleHyp = (ele) => {
+    ele.classList.toggle("clicked-bg");
     if (tri == 0 && hyp == 0) {
         for (let i = 0; i < arrLen; i++) {
             triFunctions[i].style.display = "none";
@@ -77,12 +77,12 @@ function toggleHyp() {
             hyp = 0;
         }
     }
-}
+};
 //adding toggling
 const triBtn2nd = document.getElementById('tri-btn-2nd');
-triBtn2nd.addEventListener('click', toggleTri);
+triBtn2nd.addEventListener('click', function () { toggleTri(this); });
 const triBtnHyp = document.getElementById('tri-btn-hyp');
-triBtnHyp.addEventListener('click', toggleHyp);
+triBtnHyp.addEventListener('click', function () { toggleHyp(this); });
 const trigonometryDropdown = document.getElementById('trigonometry-dropdown');
 trigonometryDropdown.addEventListener('click', () => {
     document.getElementById("trigonometry-content").classList.toggle("show");
@@ -101,120 +101,120 @@ degRad.addEventListener('click', () => {
 //sin
 document.getElementById('sin')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? (Math.sin((Math.PI / 180) * input.value)).toFixed(5) : (Math.sin(input.value)).toFixed(5);
+    input.value = (deg == 1) ? (Math.sin((Math.PI / 180) * Number(input.value))).toFixed(5) : (Math.sin(Number(input.value))).toFixed(5);
 });
 //cos
 document.getElementById('cos')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? (Math.cos((Math.PI / 180) * input.value)).toFixed(5) : (Math.cos(input.value)).toFixed(5);
+    input.value = (deg == 1) ? (Math.cos((Math.PI / 180) * Number(input.value))).toFixed(5) : (Math.cos(Number(input.value))).toFixed(5);
 });
 //tan
 document.getElementById('tan')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? (Math.tan((Math.PI / 180) * input.value)).toFixed(5) : (Math.tan(input.value)).toFixed(5);
+    input.value = (deg == 1) ? (Math.tan((Math.PI / 180) * Number(input.value))).toFixed(5) : (Math.tan(Number(input.value))).toFixed(5);
 });
 //sec
 document.getElementById('sec')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? (1 / Math.cos((Math.PI / 180) * input.value)).toFixed(5) : (1 / Math.cos(input.value)).toFixed(5);
+    input.value = (deg == 1) ? (1 / Math.cos((Math.PI / 180) * Number(input.value))).toFixed(5) : (1 / Math.cos(Number(input.value))).toFixed(5);
 });
 //csc
 document.getElementById('csc')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? (1 / Math.sin((Math.PI / 180) * input.value)).toFixed(5) : (1 / Math.sin(input.value)).toFixed(5);
+    input.value = (deg == 1) ? (1 / Math.sin((Math.PI / 180) * Number(input.value))).toFixed(5) : (1 / Math.sin(Number(input.value))).toFixed(5);
 });
 //cot
 document.getElementById('cot')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? (1 / Math.tan((Math.PI / 180) * input.value)).toFixed(5) : (1 / Math.tan(input.value)).toFixed(5);
+    input.value = (deg == 1) ? (1 / Math.tan((Math.PI / 180) * Number(input.value))).toFixed(5) : (1 / Math.tan(Number(input.value))).toFixed(5);
 });
 //sin inverse
 document.getElementById('asin')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? ((180 / Math.PI) * Math.asin(input.value)).toFixed(5) : (Math.asin(input.value)).toFixed(5);
+    input.value = (deg == 1) ? ((180 / Math.PI) * Math.asin(Number(input.value))).toFixed(5) : (Math.asin(Number(input.value))).toFixed(5);
 });
 //cos inverse
 document.getElementById('acos')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? ((180 / Math.PI) * Math.acos(input.value)).toFixed(5) : (Math.acos(input.value)).toFixed(5);
+    input.value = (deg == 1) ? ((180 / Math.PI) * Math.acos(Number(input.value))).toFixed(5) : (Math.acos(Number(input.value))).toFixed(5);
 });
 //tan inverse
 document.getElementById('atan')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? ((180 / Math.PI) * Math.atan(input.value)).toFixed(5) : (Math.atan(input.value)).toFixed(5);
+    input.value = (deg == 1) ? ((180 / Math.PI) * Math.atan(Number(input.value))).toFixed(5) : (Math.atan(Number(input.value))).toFixed(5);
 });
 //sec inverse
 document.getElementById('asec')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? ((180 / Math.PI) * Math.acos(1 / input.value)).toFixed(5) : (Math.acos(1 / input.value)).toFixed(5);
+    input.value = (deg == 1) ? ((180 / Math.PI) * Math.acos(1 / Number(input.value))).toFixed(5) : (Math.acos(1 / Number(input.value))).toFixed(5);
 });
 //cosec inverse
 document.getElementById('acsc')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? ((180 / Math.PI) * Math.asin(1 / input.value)).toFixed(5) : (Math.asin(1 / input.value)).toFixed(5);
+    input.value = (deg == 1) ? ((180 / Math.PI) * Math.asin(1 / Number(input.value))).toFixed(5) : (Math.asin(1 / Number(input.value))).toFixed(5);
 });
 //cot inverse
 document.getElementById('acot')
     .addEventListener('click', () => {
-    input.value = (deg == 1) ? ((180 / Math.PI) * Math.atan(1 / input.value)).toFixed(5) : (Math.atan(1 / input.value)).toFixed(5);
+    input.value = (deg == 1) ? ((180 / Math.PI) * Math.atan(1 / Number(input.value))).toFixed(5) : (Math.atan(1 / Number(input.value))).toFixed(5);
 });
 //sinh
 document.getElementById('sinh')
     .addEventListener('click', () => {
-    input.value = Math.sinh(input.value).toFixed(5);
+    input.value = Math.sinh(Number(input.value)).toFixed(5);
 });
 //cosh
 document.getElementById('cosh')
     .addEventListener('click', () => {
-    input.value = Math.cosh(input.value).toFixed(5);
+    input.value = Math.cosh(Number(input.value)).toFixed(5);
 });
 //tanh
 document.getElementById('tanh')
     .addEventListener('click', () => {
-    input.value = Math.tanh(input.value).toFixed(5);
+    input.value = Math.tanh(Number(input.value)).toFixed(5);
 });
 //sech
 document.getElementById('sech')
     .addEventListener('click', () => {
-    input.value = (1 / Math.cosh(input.value)).toFixed(5);
+    input.value = (1 / Math.cosh(Number(input.value))).toFixed(5);
 });
 //cosech
 document.getElementById('csch')
     .addEventListener('click', () => {
-    input.value = (1 / Math.sinh(input.value)).toFixed(5);
+    input.value = (1 / Math.sinh(Number(input.value))).toFixed(5);
 });
 //coth
 document.getElementById('coth')
     .addEventListener('click', () => {
-    input.value = (1 / Math.tanh(input.value)).toFixed(5);
+    input.value = (1 / Math.tanh(Number(input.value))).toFixed(5);
 });
 //sinh inverse 
 document.getElementById('asinh')
     .addEventListener('click', () => {
-    input.value = Math.asinh(input.value).toFixed(5);
+    input.value = Math.asinh(Number(input.value)).toFixed(5);
 });
 //cosh inverse 
 document.getElementById('acosh')
     .addEventListener('click', () => {
-    input.value = Math.acosh(input.value).toFixed(5);
+    input.value = Math.acosh(Number(input.value)).toFixed(5);
 });
 //tanh inverse
 document.getElementById('atanh')
     .addEventListener('click', () => {
-    input.value = Math.atanh(input.value).toFixed(5);
+    input.value = Math.atanh(Number(input.value)).toFixed(5);
 });
 //sech inverse
 document.getElementById('asech')
     .addEventListener('click', () => {
-    input.value = Math.acosh(1 / input.value).toFixed(5);
+    input.value = Math.acosh(1 / Number(input.value)).toFixed(5);
 });
 //cosech inverse
 document.getElementById('acsch')
     .addEventListener('click', () => {
-    input.value = Math.asinh(1 / input.value).toFixed(5);
+    input.value = Math.asinh(1 / Number(input.value)).toFixed(5);
 });
 //coth inverse
 document.getElementById('acoth')
     .addEventListener('click', () => {
-    input.value = Math.atanh(1 / input.value).toFixed(5);
+    input.value = Math.atanh(1 / Number(input.value)).toFixed(5);
 });

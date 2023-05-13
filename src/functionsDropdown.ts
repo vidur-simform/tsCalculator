@@ -28,7 +28,7 @@ const degToDms:HTMLDivElement = document.getElementById('deg-to-dms')as HTMLDivE
 degToDms.addEventListener('click', () => {
     let deg = input.value;
     let minutes = ((Number(deg) - parseInt(deg)) * 60).toString();
-    let seconds = ((Number(minutes) - parseInt(minutes) * 60)).toString();
+    let seconds = ((Number(minutes) - parseInt(minutes)) * 60).toString();
     input.value = parseFloat(`${parseInt(deg)}.${parseInt(minutes)}${parseInt(seconds)}`).toFixed(4).toString();
 });
 

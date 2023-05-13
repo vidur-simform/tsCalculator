@@ -15,7 +15,7 @@ const numberInputs = document.getElementsByClassName('number');
 const operators = document.getElementsByClassName('operator');
 const equal = document.getElementById('equal');
 const brackets = document.getElementsByClassName('bracket');
-const operatorSymbols = ["*", "+", "-", "/"];
+const operatorSymbols = ["+", "-", "÷", "x", "^", "e"];
 //numbers input
 for (let ele of numberInputs) {
     ele.addEventListener('click', () => {
@@ -31,7 +31,7 @@ for (let ele of brackets) {
 //operators
 for (let ele of operators) {
     ele.addEventListener('click', () => {
-        if (operatorSymbols.includes(expression.value.slice(-1))) {
+        if (input.value == "" && operatorSymbols.includes(expression.value.slice(-1))) {
             expression.value = expression.value.substring(0, expression.value.length - 1) + ele.innerHTML;
         }
         else {

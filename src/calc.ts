@@ -16,7 +16,7 @@ const numberInputs = document.getElementsByClassName('number');
 const operators = document.getElementsByClassName('operator');
 const equal: HTMLDivElement = document.getElementById('equal') as HTMLDivElement;
 const brackets = document.getElementsByClassName('bracket');
-const operatorSymbols: string[] = ["*", "+", "-", "/"];
+const operatorSymbols: string[] = ["+", "-", "÷", "x", "^", "e"];
 
 //numbers input
 for (let ele of numberInputs) {
@@ -35,7 +35,7 @@ for (let ele of brackets) {
 //operators
 for (let ele of operators) {
     ele.addEventListener('click', () => {
-        if (operatorSymbols.includes(expression.value.slice(-1))) {
+        if (input.value == "" && operatorSymbols.includes(expression.value.slice(-1))) {
             expression.value = expression.value.substring(0, expression.value.length - 1) + ele.innerHTML;
         }
         else {
@@ -91,7 +91,7 @@ equal.addEventListener('click', () => {
         input.value = eval((expression.value).replaceAll("^", "**").replaceAll("mod", "%")
             .replaceAll("÷", "/").replaceAll("x", "*"));
         expression.value = "";
-        
+
     }
     catch (err) {
         alert("Invalid expression!")
@@ -113,7 +113,7 @@ constE.addEventListener('click', () => {
 });
 
 //pi 
-const constPi:HTMLDivElement = document.getElementById('const-pi') as HTMLDivElement;
+const constPi: HTMLDivElement = document.getElementById('const-pi') as HTMLDivElement;
 constPi.addEventListener('click', () => {
     if (!isNaN(parseInt(input.value.slice(-1)))) {
         input.value = Math.PI.toString();

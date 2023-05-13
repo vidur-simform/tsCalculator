@@ -35,7 +35,7 @@ document.getElementById('log')!
 //log x base y
 const logXBaseY: HTMLDivElement = document.getElementById('log-x-base-y') as HTMLDivElement;
 logXBaseY.addEventListener('click', () => {
-    if (operatorSymbols.includes(expression.value.slice(-1))) {
+    if (input.value == "" && operatorSymbols.includes(expression.value.slice(-1))) {
         expression.value = expression.value.substring(0, expression.value.length - 1) + "logbase";
     }
     else {
@@ -103,20 +103,22 @@ document.getElementById('abs2')!
         input.value = Math.abs(Number(input.value)).toString();
     });
 
-//exp //bug
+//exp
 document.getElementById('exp')!
     .addEventListener('click', () => {
-        if (operatorSymbols.includes(expression.value.slice(-1))) {
-            input.value = input.value.substring(0, input.value.length - 1) + ".e";
+        if (input.value == "" && operatorSymbols.includes(expression.value.slice(-1))) {
+            input.value = input.value.substring(0, input.value.length - 1) + "e";
         }
-        else
-            input.value += ".e";
+        else{
+            expression.value += input.value + "e";
+            input.value = "";
+        }
     });
 
 //modulo
 document.getElementById('mod')!
     .addEventListener('click', () => {
-        if (operatorSymbols.includes(expression.value.slice(-1))) {
+        if (input.value == "" && operatorSymbols.includes(expression.value.slice(-1))) {
             expression.value = expression.value.substring(0, expression.value.length - 1) + "mod";
         }
         else {
@@ -128,7 +130,7 @@ document.getElementById('mod')!
 //x power y
 document.getElementById('x-power-y')!
     .addEventListener('click', () => {
-        if (operatorSymbols.includes(expression.value.slice(-1))) {
+        if (input.value == "" && operatorSymbols.includes(expression.value.slice(-1))) {
             expression.value = expression.value.substring(0, expression.value.length - 1) + "^";
         }
         else {
@@ -140,7 +142,7 @@ document.getElementById('x-power-y')!
 //yth root of x
 document.getElementById('yth-root-of-x')!
     .addEventListener('click', () => {
-        if (operatorSymbols.includes(expression.value.slice(-1))) {
+        if (input.value == "" && operatorSymbols.includes(expression.value.slice(-1))) {
             expression.value = expression.value.substring(0, expression.value.length - 1) + "ythroot";
         }
         else {
